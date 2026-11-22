@@ -1,0 +1,5 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Voice Notes</title>
+<style>body{font-family:system-ui;background:#0f1117;color:#fff;padding:2rem;max-width:680px;margin:auto}textarea{width:100%;height:180px;background:#181b24;color:#fff;border:1px solid #2e3240;border-radius:10px;padding:.85rem}button{background:#f97316;color:#fff;border:none;padding:.6rem 1rem;border-radius:8px;cursor:pointer;margin-top:.7rem}</style></head><body>
+<h1>Speech-to-Text Voice Notes</h1><textarea id="out" placeholder="Click Start Dictation and speak..."></textarea><br>
+<button onclick="startRec()">Start Dictation</button> <button onclick="localStorage.setItem('ra_voice',out.value);alert('Saved!')">Save Note</button>
+<script>out.value=localStorage.getItem("ra_voice")||"";function startRec(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR)return alert("Use Chrome/Edge for Web Speech API.");const r=new SR();r.onresult=e=>{out.value+=(out.value?" ":"")+e.results[0][0].transcript;};r.start();}</script></body></html>

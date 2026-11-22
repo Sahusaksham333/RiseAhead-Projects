@@ -1,0 +1,5 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Password Generator</title>
+<style>body{font-family:system-ui;background:#0f1117;color:#fff;padding:2rem;max-width:480px;margin:auto}#pw{font-family:monospace;font-size:1.25rem;background:#181b24;padding:1rem;border-radius:10px;border:1px solid #f97316;word-break:break-all;margin:1rem 0}button{background:#f97316;color:#fff;border:none;padding:.6rem 1rem;border-radius:8px;cursor:pointer}</style></head><body>
+<h1>Secure Password Generator</h1>Length: <input id="len" type="number" value="16" min="8" max="64" style="width:70px;background:#181b24;color:#fff;border:1px solid #2e3240;padding:.3rem"> <button onclick="gen()">Generate</button>
+<div id="pw"></div><button onclick="navigator.clipboard.writeText(pw.textContent)">Copy</button>
+<script>function gen(){const chars="ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&*";const n=+len.value,arr=new Uint32Array(n);crypto.getRandomValues(arr);pw.textContent=Array.from(arr,x=>chars[x%chars.length]).join("");}gen();</script></body></html>

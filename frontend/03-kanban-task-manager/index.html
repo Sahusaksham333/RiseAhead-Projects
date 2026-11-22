@@ -1,0 +1,9 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Kanban Board</title>
+<style>body{font-family:system-ui;background:#0f1117;color:#fff;padding:1.5rem}.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.col{background:#181b24;border:1px solid #2e3240;border-radius:10px;padding:1rem;min-height:280px}.task{background:#222633;padding:.65rem;border-radius:8px;margin-bottom:.5rem;display:flex;justify-content:space-between}button{background:#f97316;color:#fff;border:none;border-radius:6px;padding:.35rem .65rem;cursor:pointer}</style></head><body>
+<h1>Kanban Task Board</h1><input id="t" placeholder="New task..." style="padding:.5rem;background:#181b24;color:#fff;border:1px solid #2e3240;border-radius:6px"> <button onclick="add()">Add</button>
+<div class="cols" style="margin-top:1rem"><div class="col"><h3>To Do</h3><div id="todo"></div></div><div class="col"><h3>In Progress</h3><div id="prog"></div></div><div class="col"><h3>Done</h3><div id="done"></div></div></div>
+<script>let tasks=JSON.parse(localStorage.getItem("ra_kanban")||"[]");
+function save(){localStorage.setItem("ra_kanban",JSON.stringify(tasks));render();}
+function add(){const v=document.getElementById("t").value.trim();if(!v)return;tasks.push({id:Date.now(),text:v,st:"todo"});document.getElementById("t").value="";save();}
+function move(id,st){const x=tasks.find(t=>t.id===id);if(x)x.st=st;save();}
+function render(){["todo","prog","done"].forEach(s=>{document.getElementById(s).innerHTML=tasks.filter(t=>t.st===s).map(t=>`<div class="task"><span>${t.text}</span><span>${s!=="done"?`<button onclick="move(${t.id},'${s==="todo"?"prog":"done"}')">→</button>`:""}</span></div>`).join("");});}render();</script></body></html>

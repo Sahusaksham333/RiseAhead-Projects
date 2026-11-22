@@ -1,0 +1,4 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>QR Code Generator</title>
+<style>body{font-family:system-ui;background:#0f1117;color:#fff;padding:2rem;text-align:center}input{padding:.65rem;width:320px;background:#181b24;color:#fff;border:1px solid #2e3240;border-radius:8px}button{background:#f97316;color:#fff;border:none;padding:.65rem 1rem;border-radius:8px;cursor:pointer}</style></head><body>
+<h1>QR Code Generator</h1><input id="txt" placeholder="Enter URL or text..."><button onclick="gen()">Generate</button><div style="margin-top:1.5rem"><img id="qr" alt="" style="border-radius:10px;background:#fff;padding:8px;display:none"></div>
+<script>function gen(){const v=encodeURIComponent(document.getElementById("txt").value.trim());if(!v)return;const img=document.getElementById("qr");img.src=`https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${v}`;img.style.display="inline-block";}</script></body></html>

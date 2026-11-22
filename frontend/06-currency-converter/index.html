@@ -1,0 +1,7 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Currency Converter</title>
+<style>body{font-family:system-ui;background:#0f1117;color:#fff;padding:2rem;max-width:480px;margin:auto}input,select{width:100%;padding:.65rem;margin:.4rem 0;background:#181b24;color:#fff;border:1px solid #2e3240;border-radius:8px}#res{font-size:1.4rem;color:#fdba74;font-weight:800;margin-top:1rem}</style></head><body>
+<h1>Currency Converter</h1><input id="amt" type="number" value="100" oninput="conv()">
+<select id="from" onchange="conv()"><option>USD</option><option>INR</option><option>EUR</option><option>GBP</option></select>
+<select id="to" onchange="conv()"><option>INR</option><option>USD</option><option>EUR</option><option>GBP</option></select>
+<div id="res"></div>
+<script>const R={USD:1,INR:83.5,EUR:0.92,GBP:0.79};function conv(){const a=Number(amt.value||0),v=(a/R[from.value])*R[to.value];res.textContent=`${a} ${from.value} = ${v.toFixed(2)} ${to.value}`;}conv();</script></body></html>

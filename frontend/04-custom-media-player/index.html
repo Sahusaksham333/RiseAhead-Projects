@@ -1,0 +1,6 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Custom Media Player</title>
+<style>body{font-family:system-ui;background:#0f1117;color:#fff;padding:2rem;max-width:720px;margin:auto}.box{background:#181b24;padding:1.25rem;border-radius:12px;border:1px solid #2e3240}button{background:#f97316;color:#fff;border:none;padding:.5rem .9rem;border-radius:8px;cursor:pointer;margin-right:.4rem}</style></head><body>
+<h1>Custom HTML5 Media Player</h1><div class="box"><input type="file" accept="video/*,audio/*" onchange="loadFile(event)"><br><br>
+<video id="v" style="width:100%;border-radius:8px;background:#000" controls></video><div style="margin-top:.75rem">
+<button onclick="v.paused?v.play():v.pause()">Play / Pause</button><button onclick="v.playbackRate=1">1x</button><button onclick="v.playbackRate=1.5">1.5x</button><button onclick="v.playbackRate=2">2x</button></div></div>
+<script>function loadFile(e){const f=e.target.files[0];if(f)document.getElementById("v").src=URL.createObjectURL(f);}</script></body></html>
