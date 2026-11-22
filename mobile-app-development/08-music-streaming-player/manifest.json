@@ -1,0 +1,6 @@
+{
+  "name": "Music Streaming Player",
+  "short_name": "Music Streaming ",
+  "display": "standalone",
+  "theme_color": "#f97316"
+}

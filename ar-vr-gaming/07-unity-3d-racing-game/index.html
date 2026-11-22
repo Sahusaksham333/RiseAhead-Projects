@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unity 3D Racing Game — RiseAhead</title>
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; background: #090d16; color: #f8fafc; display: flex; justify-content: center; padding: 28px 16px; }
+    .wrap { width: 100%; max-width: 960px; background: #111827; border: 1px solid #1f2937; border-radius: 14px; padding: 22px; }
+    h1 { margin: 0 0 8px; font-size: 1.45rem; color: #f97316; }
+    p { margin: 0 0 14px; color: #94a3b8; font-size: 0.95rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .tag { background: #1e293b; color: #fb923c; padding: 4px 10px; border-radius: 999px; font-size: 0.78rem; }
+    canvas { width: 100%; border-radius: 10px; border: 1px solid #334155; cursor: crosshair; display: block; }
+    .hud { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Unity 3D Racing Game</h1>
+    <p>Arcade kart racer with lap timers, drift physics, and AI opponents.</p>
+    <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Vehicle Physics</span></div>
+    <div class="hud"><span>Move pointer over stage to interact</span><span>Score: <strong id="score">0</strong></span></div>
+    <canvas id="stage" width="820" height="360"></canvas>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
